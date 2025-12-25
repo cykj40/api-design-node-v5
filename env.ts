@@ -31,7 +31,9 @@ export type Env = z.infer<typeof envSchema>
 let env: Env
 
 try {
+
   env = envSchema.parse(process.env)
+
 } catch (e) {
   if (e instanceof z.ZodError) {
     console.log('Invalid env var')
